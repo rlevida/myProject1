@@ -29,3 +29,26 @@ Feel free to use the internet including Google and Stackoverflow to help with th
 Please just ask.
 
 Good luck and thanks for taking the time to complete this task!
+
+
+Usage:
+
+1. Run docker build .
+2. Run docker-compose up
+3. Navigate to 'POST http://localhost:3000/generate/token' - copy without quotes(") and add to Authorization header Bearer {token}
+    -use 
+    body {
+        "username":"username",
+        "password":"password"
+    }
+4. Navigate to 'http://localhost:3000/generate/list' - to generate list of country it will save on cache (retry until you have data)
+5. Addition endpoint 
+  - sort 'GET http://localhost:3000/list/country/{sort}' -sort value  asc or decs else default sorting
+  - update 'PUT  http://localhost:3000/country/{id}'  - id of country 
+       body{
+        "name": "REPUBLIC OF KOREA",
+        "code": "kor",
+        "population": 11199579092
+       }
+  - delete 'DELETE  http://localhost:3000/country/{id}' id of country
+  * Navigate to 'http://localhost:3000/generate/list' will refresh the list
